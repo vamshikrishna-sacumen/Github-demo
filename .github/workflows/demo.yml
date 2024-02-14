@@ -1,8 +1,21 @@
-name: hello-world
-on: push
+name: Demo application
+on: [push]
 jobs:
-  my-job:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: create virtual environment
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+        
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
