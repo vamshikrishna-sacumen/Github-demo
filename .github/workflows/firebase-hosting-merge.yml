@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pip install -r requirements.txt
+      - uses: actions/setup-python@v2
+      - run: pip install -r reuirements.txt
+      - run: python demo.py
+      
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.SECRETE_TOKEN }}'
