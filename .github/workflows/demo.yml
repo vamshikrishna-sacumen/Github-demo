@@ -18,14 +18,3 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-
-      - name: Deploy
-        uses: actions/checkout@v2
-      # Add any build steps here. For example:
-      # - run: npm ci && npm run build
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: "${{ secrets.SECRETE_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          projectId: "${{ secrets.FIREBASE_PROJECT_ID }}"
-          channelId: live
